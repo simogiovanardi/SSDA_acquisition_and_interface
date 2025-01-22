@@ -1,6 +1,7 @@
 import pandas as pd
+from functions import direction_identifier
 
-data = pd.read_csv("90 degrees.csv") # <--- INSERT HERE THE NEW FILE
+data = pd.read_csv("2 sensors(forth)_very_good.csv") # <--- INSERT HERE THE NEW FILE
 
 # Extract the data about the two sensors (rounding up to 3 decimal numbers)
 sensor_1 = [round(value, 3) for value in data['CH-0']] # Sensor 1 ==> CH-0
@@ -66,7 +67,10 @@ print(normalized_values)
 
 
 # EVALUATION OF THE VALUES (DETECTION OF THE DRONE)
-# for event in normalized_values
+directions = []
+
+for event in normalized_values:
+   directions.append(direction_identifier(event[0], event[1]))
 
 
-
+print(directions)
