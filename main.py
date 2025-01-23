@@ -1,7 +1,8 @@
 import pandas as pd
 from functions import direction_identifier
+from user_interface import *
 
-data = pd.read_csv("2 sensors(forth)_very_good.csv") # <--- INSERT HERE THE NEW FILE
+data = pd.read_csv("acquisitions/2_sensors(forth)_very_good.csv") # <--- INSERT HERE THE NEW FILE
 
 # Extract the data about the two sensors (rounding up to 3 decimal numbers)
 sensor_1 = [round(value, 3) for value in data['CH-0']] # Sensor 1 ==> CH-0
@@ -63,7 +64,7 @@ normalized_values = []
 
 for i in range(len(events)):
    normalized_values.append((sums_sensor_1[i] / samples_per_event[i], sums_sensor_2[i] / samples_per_event[i]))
-print(normalized_values)
+print(f"NORMALIZED VALUES: {normalized_values}")
 
 
 # EVALUATION OF THE VALUES (DETECTION OF THE DRONE)
@@ -73,4 +74,17 @@ for event in normalized_values:
    directions.append(direction_identifier(event[0], event[1]))
 
 
-print(directions)
+print(f"ANGLES EVENTS: {directions}")
+
+# TODO
+# grafical interface associated to the arriving direction
+# implement the fact that different drones can be detected
+# try to implement the fact that the script starts as soon as the file is uploaded or
+# if I select the file directly from the interface
+
+
+root = tk.Tk()
+root.title("Drone Arrival Direction Radar")
+
+RadarDirectionVisualizer(root, directions)
+root.mainloop()
