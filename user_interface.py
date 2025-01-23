@@ -103,8 +103,8 @@ class RadarDirectionVisualizer:
 
     def add_sector(self, ax, center_angle, label_index, color):
         # Calculate start and end angles for the 5° sector
-        start_angle = center_angle - np.deg2rad(5)
-        end_angle = center_angle + np.deg2rad(5)
+        start_angle = center_angle - np.deg2rad(8)
+        end_angle = center_angle + np.deg2rad(8)
 
         # Add a wedge (sector) highlighting the segment
         ax.fill_between(

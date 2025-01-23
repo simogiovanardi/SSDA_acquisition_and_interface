@@ -2,7 +2,7 @@ import pandas as pd
 from functions import direction_identifier
 from user_interface import *
 
-data = pd.read_csv("acquisitions/2 sensors (second video).csv") # <--- INSERT HERE THE NEW FILE
+data = pd.read_csv("acquisitions/90 degrees.csv") # <--- INSERT HERE THE NEW FILE
 
 # Extract the data about the two sensors (rounding up to 3 decimal numbers)
 sensor_1 = [round(value, 3) for value in data['CH-0']] # Sensor 1 ==> CH-0
