@@ -85,10 +85,3 @@ root.title("Drone Arrival Direction Radar")
 
 RadarDirectionVisualizer(root, directions)
 root.mainloop()
-
-
-# TODO
-# try to implement the fact that the script starts as soon as the file is uploaded or
-# if I select the file directly from the interface
-
-
